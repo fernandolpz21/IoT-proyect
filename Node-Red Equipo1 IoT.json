@@ -1,0 +1,3268 @@
+[
+    {
+        "id": "18e426374166a31c",
+        "type": "tab",
+        "label": "Test",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ff746fe388e0f6c2",
+        "type": "join",
+        "z": "18e426374166a31c",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 430,
+        "y": 60,
+        "wires": [
+            [
+                "d604729a4c77e556",
+                "34f9e79400cc0315",
+                "aca9d68b99b84652"
+            ]
+        ]
+    },
+    {
+        "id": "c7d2b8d90629182c",
+        "type": "change",
+        "z": "18e426374166a31c",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "complete",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 180,
+        "wires": [
+            [
+                "43cbd99a12cc0182",
+                "ff746fe388e0f6c2"
+            ]
+        ]
+    },
+    {
+        "id": "43cbd99a12cc0182",
+        "type": "debug",
+        "z": "18e426374166a31c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "10c7d14a8dd91245",
+        "type": "inject",
+        "z": "18e426374166a31c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "ts",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 100,
+        "y": 180,
+        "wires": [
+            [
+                "c7d2b8d90629182c"
+            ]
+        ]
+    },
+    {
+        "id": "d604729a4c77e556",
+        "type": "debug",
+        "z": "18e426374166a31c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "afad426eb592afbd",
+        "type": "inject",
+        "z": "18e426374166a31c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "dispositivo",
+        "payload": "Sensor_1",
+        "payloadType": "str",
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "ff746fe388e0f6c2"
+            ]
+        ]
+    },
+    {
+        "id": "47f4dda73c1825e7",
+        "type": "inject",
+        "z": "18e426374166a31c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "tipo",
+        "payload": "temperatura",
+        "payloadType": "str",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "ff746fe388e0f6c2"
+            ]
+        ]
+    },
+    {
+        "id": "cad553b212ceaa7b",
+        "type": "comment",
+        "z": "18e426374166a31c",
+        "name": "envía a mqtt: {\"dispositivo\":\"x\",\"tipo\":\"x\",\"dato\":x}",
+        "info": "Genera un objeto así:\n{\"dispositivo\":\"Casa Sur\",\"tipo\":\"Temperatura\",\"dato\":31}\nCon los valores de los nodos de inyección\n\nLo envía a mqtt al tópico fjhp6619mxIn\n",
+        "x": 210,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "226ac747332d7da4",
+        "type": "inject",
+        "z": "18e426374166a31c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "3",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "dato",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 100,
+        "y": 140,
+        "wires": [
+            [
+                "eb87828206995ef3"
+            ]
+        ]
+    },
+    {
+        "id": "34f9e79400cc0315",
+        "type": "mqtt out",
+        "z": "18e426374166a31c",
+        "name": "",
+        "topic": "Eq1IoTTecG570In",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8511cfae.a6277",
+        "x": 650,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "837125848fad835e",
+        "type": "ui_slider",
+        "z": "18e426374166a31c",
+        "name": "",
+        "label": "Dato",
+        "tooltip": "",
+        "group": "6fdfe177.5224b",
+        "order": 9,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "outs": "all",
+        "topic": "dato",
+        "topicType": "str",
+        "min": "-30",
+        "max": "100",
+        "step": "0.5",
+        "className": "",
+        "x": 70,
+        "y": 570,
+        "wires": [
+            [
+                "8b41654bb42e3521",
+                "78a7372006b28251"
+            ]
+        ]
+    },
+    {
+        "id": "d4daaf72a4dcd75f",
+        "type": "ui_dropdown",
+        "z": "18e426374166a31c",
+        "name": "",
+        "label": "Nombre Dispositivo",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "6fdfe177.5224b",
+        "order": 3,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Sensor 3 NR",
+                "value": "Sensor_3NR",
+                "type": "str"
+            },
+            {
+                "label": "Sensor 4 NR",
+                "value": "Sensor_4NR",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "dispositivo",
+        "topicType": "str",
+        "className": "",
+        "x": 110,
+        "y": 490,
+        "wires": [
+            [
+                "8b41654bb42e3521"
+            ]
+        ]
+    },
+    {
+        "id": "0508833e9d38b1e4",
+        "type": "ui_dropdown",
+        "z": "18e426374166a31c",
+        "name": "",
+        "label": "Tipo",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "6fdfe177.5224b",
+        "order": 5,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Temperatura",
+                "value": "Temperatura",
+                "type": "str"
+            },
+            {
+                "label": "Humedad",
+                "value": "Humedad",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "tipo",
+        "topicType": "str",
+        "className": "",
+        "x": 70,
+        "y": 530,
+        "wires": [
+            [
+                "8b41654bb42e3521"
+            ]
+        ]
+    },
+    {
+        "id": "2ce2d631889df02d",
+        "type": "ui_button",
+        "z": "18e426374166a31c",
+        "name": "",
+        "group": "6fdfe177.5224b",
+        "order": 19,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "label": "Envía",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "ts",
+        "topicType": "str",
+        "x": 70,
+        "y": 610,
+        "wires": [
+            [
+                "910c178e9b285096"
+            ]
+        ]
+    },
+    {
+        "id": "8b41654bb42e3521",
+        "type": "join",
+        "z": "18e426374166a31c",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 380,
+        "y": 490,
+        "wires": [
+            [
+                "0bd473d9e1a55142",
+                "b67354c631e44b0d",
+                "5bc2c4eca556a017",
+                "c58f473d3893ad4c"
+            ]
+        ]
+    },
+    {
+        "id": "910c178e9b285096",
+        "type": "change",
+        "z": "18e426374166a31c",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "complete",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 610,
+        "wires": [
+            [
+                "8b41654bb42e3521"
+            ]
+        ]
+    },
+    {
+        "id": "99b226db7a37f318",
+        "type": "ui_toast",
+        "z": "18e426374166a31c",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 620,
+        "y": 570,
+        "wires": []
+    },
+    {
+        "id": "0bd473d9e1a55142",
+        "type": "debug",
+        "z": "18e426374166a31c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 530,
+        "wires": []
+    },
+    {
+        "id": "b67354c631e44b0d",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "cacb555.674f6a8",
+        "order": 18,
+        "width": "14",
+        "height": "1",
+        "name": "",
+        "label": "Simul. Manual",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 610,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "78a7372006b28251",
+        "type": "ui_gauge",
+        "z": "18e426374166a31c",
+        "name": "",
+        "group": "6fdfe177.5224b",
+        "order": 7,
+        "width": "3",
+        "height": "3",
+        "gtype": "donut",
+        "title": "",
+        "label": "Dato",
+        "format": "{{value}}",
+        "min": "-40",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 240,
+        "y": 570,
+        "wires": []
+    },
+    {
+        "id": "5bc2c4eca556a017",
+        "type": "json",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 620,
+        "y": 520,
+        "wires": [
+            [
+                "99b226db7a37f318"
+            ]
+        ]
+    },
+    {
+        "id": "c58f473d3893ad4c",
+        "type": "mqtt out",
+        "z": "18e426374166a31c",
+        "name": "",
+        "topic": "Eq1IoTTecG570In",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8511cfae.a6277",
+        "x": 630,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "50549e4f2fa417b9",
+        "type": "mqtt in",
+        "z": "18e426374166a31c",
+        "name": "",
+        "topic": "Eq1IoTTecG570In",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "8511cfae.a6277",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 110,
+        "y": 880,
+        "wires": [
+            [
+                "67c04ada9ee11764",
+                "2e90dddcb54334ef",
+                "ad3eb9319f774324",
+                "1dbb52e5864fed92",
+                "a39d55d6df128a25"
+            ]
+        ]
+    },
+    {
+        "id": "e8721e42d5d9f585",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "cacb555.674f6a8",
+        "order": 3,
+        "width": "14",
+        "height": "1",
+        "name": "Recibido",
+        "label": "Último recibido: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 540,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "67c04ada9ee11764",
+        "type": "delay",
+        "z": "18e426374166a31c",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "1",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "outputs": 1,
+        "x": 370,
+        "y": 860,
+        "wires": [
+            [
+                "e8721e42d5d9f585"
+            ]
+        ]
+    },
+    {
+        "id": "2e90dddcb54334ef",
+        "type": "change",
+        "z": "18e426374166a31c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Recibiendo...",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 360,
+        "y": 910,
+        "wires": [
+            [
+                "e8721e42d5d9f585"
+            ]
+        ]
+    },
+    {
+        "id": "c4ec93941e5c4471",
+        "type": "join",
+        "z": "18e426374166a31c",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 430,
+        "y": 310,
+        "wires": [
+            [
+                "f84ebe4daaffaee2",
+                "64d211766516e49e",
+                "257d4fcd271e3b57"
+            ]
+        ]
+    },
+    {
+        "id": "543c151e75c25cd8",
+        "type": "change",
+        "z": "18e426374166a31c",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "complete",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 260,
+        "y": 390,
+        "wires": [
+            [
+                "5ea4e3bcd4141d7f",
+                "c4ec93941e5c4471"
+            ]
+        ]
+    },
+    {
+        "id": "5ea4e3bcd4141d7f",
+        "type": "debug",
+        "z": "18e426374166a31c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 390,
+        "wires": []
+    },
+    {
+        "id": "f84ebe4daaffaee2",
+        "type": "debug",
+        "z": "18e426374166a31c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 310,
+        "wires": []
+    },
+    {
+        "id": "7cb9fecc49920675",
+        "type": "inject",
+        "z": "18e426374166a31c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "6",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "dispositivo",
+        "payload": "Sensor_2",
+        "payloadType": "str",
+        "x": 140,
+        "y": 270,
+        "wires": [
+            [
+                "c4ec93941e5c4471"
+            ]
+        ]
+    },
+    {
+        "id": "80a549d5827c11ad",
+        "type": "inject",
+        "z": "18e426374166a31c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "6",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "tipo",
+        "payload": "humedad",
+        "payloadType": "str",
+        "x": 120,
+        "y": 310,
+        "wires": [
+            [
+                "c4ec93941e5c4471"
+            ]
+        ]
+    },
+    {
+        "id": "be1a02ffe9f6096b",
+        "type": "comment",
+        "z": "18e426374166a31c",
+        "name": "envía a mqtt: {\"dispositivo\":\"x\",\"tipo\":\"x\",\"dato\":x}",
+        "info": "Genera un objeto así:\n{\"dispositivo\":\"Casa Sur\",\"tipo\":\"Temperatura\",\"dato\":31}\nCon los valores de los nodos de inyección\n\nLo envía a mqtt al tópico fjhp6619mxIn\n",
+        "x": 210,
+        "y": 230,
+        "wires": []
+    },
+    {
+        "id": "64d211766516e49e",
+        "type": "mqtt out",
+        "z": "18e426374166a31c",
+        "name": "",
+        "topic": "Eq1IoTTecG570In",
+        "qos": "1",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "8511cfae.a6277",
+        "x": 610,
+        "y": 350,
+        "wires": []
+    },
+    {
+        "id": "257d4fcd271e3b57",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "cacb555.674f6a8",
+        "order": 11,
+        "width": "14",
+        "height": "1",
+        "name": "",
+        "label": "Simul. Sensor_2: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 610,
+        "y": 270,
+        "wires": []
+    },
+    {
+        "id": "b468b98c684a58d4",
+        "type": "inject",
+        "z": "18e426374166a31c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "6",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "dato",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 100,
+        "y": 350,
+        "wires": [
+            [
+                "f7c7d482700cf78b"
+            ]
+        ]
+    },
+    {
+        "id": "eb87828206995ef3",
+        "type": "random",
+        "z": "18e426374166a31c",
+        "name": "",
+        "low": "30",
+        "high": "40",
+        "inte": "false",
+        "property": "payload",
+        "x": 250,
+        "y": 140,
+        "wires": [
+            [
+                "ff746fe388e0f6c2"
+            ]
+        ]
+    },
+    {
+        "id": "9d1e523ec8884948",
+        "type": "inject",
+        "z": "18e426374166a31c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "6",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "0.3",
+        "topic": "ts",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 100,
+        "y": 390,
+        "wires": [
+            [
+                "543c151e75c25cd8"
+            ]
+        ]
+    },
+    {
+        "id": "f7c7d482700cf78b",
+        "type": "random",
+        "z": "18e426374166a31c",
+        "name": "",
+        "low": "50",
+        "high": "70",
+        "inte": "true",
+        "property": "payload",
+        "x": 240,
+        "y": 350,
+        "wires": [
+            [
+                "c4ec93941e5c4471"
+            ]
+        ]
+    },
+    {
+        "id": "ad3eb9319f774324",
+        "type": "switch",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "Sensor_1",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "Sensor_2",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 960,
+        "wires": [
+            [
+                "c4e1d3b0cfa0b75a",
+                "68b6195f25ac7af1"
+            ],
+            [
+                "a16c2b409537e3e0",
+                "28aea098af165135"
+            ]
+        ]
+    },
+    {
+        "id": "68b6195f25ac7af1",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "ae1737f3.6c1078",
+        "order": 1,
+        "width": "12",
+        "height": "1",
+        "name": "Mensaje",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 500,
+        "y": 990,
+        "wires": []
+    },
+    {
+        "id": "a16c2b409537e3e0",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "3f124ea4.3f56f2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "Mensaje",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "className": "",
+        "x": 500,
+        "y": 1030,
+        "wires": []
+    },
+    {
+        "id": "aca9d68b99b84652",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "cacb555.674f6a8",
+        "order": 8,
+        "width": "14",
+        "height": "1",
+        "name": "",
+        "label": "Simul. Sensor_1:  ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 650,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ecda0a31a8f7def8",
+        "type": "comment",
+        "z": "18e426374166a31c",
+        "name": "Procesa mensaje de llegada de los sensores simulados",
+        "info": "Recibe un mensaje en json en el mqtt con el tópico fjhp6619mxIn\nCon el formato string: \n{\"dispositivo\": \"a\", \"sens_act\": \"b\", \"accion\": 5}\"\ndispositivo es id del dispositivo\nsens_act es el id sensor o actuador\naccion es la acción que se solicita al dispositivo\nSe manda una notificación con el contenido del mensaje en un popup\nLuego se procesa el mensaje con el nodo json que lo convierte en objetos.\nSe pasan los objetos a una función que los separa en objetos individuales y se imprimen como texto en el Dashboard\n\n",
+        "x": 220,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "fc4ac78f5053f24c",
+        "type": "comment",
+        "z": "18e426374166a31c",
+        "name": "{\"dispositivo\":\"Casa Sur\",\"tipo\":\"Temperatura\",\"dato\":31}",
+        "info": "",
+        "x": 680,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "cf2faac9529956a8",
+        "type": "function",
+        "z": "18e426374166a31c",
+        "name": "Sensor 1",
+        "func": "var dispositivo={\"payload\":msg.payload.dispositivo};\nvar tipo={\"payload\":msg.payload.tipo};\nvar dato={\"payload\":msg.payload.dato};\n\n\nreturn [dispositivo, tipo, dato];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 910,
+        "wires": [
+            [
+                "03d2f8e5cd3752c7"
+            ],
+            [
+                "727c2f660d3b65e8"
+            ],
+            [
+                "44cf8f560d69bc39",
+                "eb7b25246f18a362",
+                "b8e8bf805f49a502"
+            ]
+        ]
+    },
+    {
+        "id": "03d2f8e5cd3752c7",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "ae1737f3.6c1078",
+        "order": 2,
+        "width": "4",
+        "height": "1",
+        "name": "",
+        "label": "Id. Sensor:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 870,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "727c2f660d3b65e8",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "ae1737f3.6c1078",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Tipo",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 870,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "44cf8f560d69bc39",
+        "type": "ui_gauge",
+        "z": "18e426374166a31c",
+        "name": "G1",
+        "group": "ae1737f3.6c1078",
+        "order": 4,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "100",
+        "colors": [
+            "#34409d",
+            "#a5a518",
+            "#711e1e"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 690,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "c4e1d3b0cfa0b75a",
+        "type": "json",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 490,
+        "y": 950,
+        "wires": [
+            [
+                "cf2faac9529956a8"
+            ]
+        ]
+    },
+    {
+        "id": "28aea098af165135",
+        "type": "json",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 490,
+        "y": 1070,
+        "wires": [
+            [
+                "6e4a3a7d18f7a0a9"
+            ]
+        ]
+    },
+    {
+        "id": "6e4a3a7d18f7a0a9",
+        "type": "function",
+        "z": "18e426374166a31c",
+        "name": "Sensor 2",
+        "func": "var dispositivo={\"payload\":msg.payload.dispositivo};\nvar tipo={\"payload\":msg.payload.tipo};\nvar dato={\"payload\":msg.payload.dato};\n\n\nreturn [dispositivo, tipo, dato];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 1070,
+        "wires": [
+            [
+                "7401468d6f13f2cc"
+            ],
+            [
+                "88c043852ae4f328"
+            ],
+            [
+                "5833fde2f19871ad",
+                "85d80a1dc5aee002",
+                "fae5e482428ba2dc"
+            ]
+        ]
+    },
+    {
+        "id": "7401468d6f13f2cc",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "3f124ea4.3f56f2",
+        "order": 2,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Id: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 790,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "88c043852ae4f328",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "3f124ea4.3f56f2",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Sensor: ",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "x": 800,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "5833fde2f19871ad",
+        "type": "ui_gauge",
+        "z": "18e426374166a31c",
+        "name": "Sensor 2",
+        "group": "3f124ea4.3f56f2",
+        "order": 6,
+        "width": "4",
+        "height": "4",
+        "gtype": "donut",
+        "title": "",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "30",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "50",
+        "seg2": "70",
+        "className": "",
+        "x": 640,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "eb7b25246f18a362",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "ae1737f3.6c1078",
+        "order": 3,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Dato",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "className": "",
+        "x": 870,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "b8e8bf805f49a502",
+        "type": "ui_chart",
+        "z": "18e426374166a31c",
+        "name": "S1",
+        "group": "ae1737f3.6c1078",
+        "order": 5,
+        "width": "7",
+        "height": "5",
+        "label": "Temperatura del sensor ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "step",
+        "nodata": "Esperando datos...",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "60",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#f79b45",
+            "#4dc74d",
+            "#98df8a",
+            "#f2eb8c",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 870,
+        "y": 940,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "85d80a1dc5aee002",
+        "type": "ui_chart",
+        "z": "18e426374166a31c",
+        "name": "",
+        "group": "3f124ea4.3f56f2",
+        "order": 5,
+        "width": "8",
+        "height": "5",
+        "label": "Humedad",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "10",
+        "ymax": "80",
+        "removeOlder": "5",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#9ff9f7",
+            "#aec7e8",
+            "#ff7f0e",
+            "#1a611a",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 800,
+        "y": 1140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fae5e482428ba2dc",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "3f124ea4.3f56f2",
+        "order": 4,
+        "width": "6",
+        "height": "1",
+        "name": "",
+        "label": "Dato",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 830,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "eff705cbd19680be",
+        "type": "function",
+        "z": "18e426374166a31c",
+        "name": "",
+        "func": "var dispositivo=msg.payload.dispositivo;\nvar tipo=msg.payload.tipo;\nvar dato=msg.payload.dato;\nvar msg = {\n    \"payload\":[dispositivo, tipo, dato],\n    \"topic\":\"insert into test (dispositivo, tipo, dato) values (?,?,?);\"\n    };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 1220,
+        "wires": [
+            [
+                "c693c775c9ff5e1e",
+                "b1bbc026deb4f7d6",
+                "b3648c45a560f75d"
+            ]
+        ]
+    },
+    {
+        "id": "1dbb52e5864fed92",
+        "type": "json",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 190,
+        "y": 1180,
+        "wires": [
+            [
+                "eff705cbd19680be"
+            ]
+        ]
+    },
+    {
+        "id": "c693c775c9ff5e1e",
+        "type": "debug",
+        "z": "18e426374166a31c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "b1bbc026deb4f7d6",
+        "type": "debug",
+        "z": "18e426374166a31c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 360,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "b3648c45a560f75d",
+        "type": "mysql",
+        "z": "18e426374166a31c",
+        "mydb": "2af5c3022a2d472b",
+        "name": "Inserta a tabla NodeRedLog",
+        "x": 600,
+        "y": 1220,
+        "wires": [
+            [
+                "afc56b0699c19daf"
+            ]
+        ]
+    },
+    {
+        "id": "afc56b0699c19daf",
+        "type": "debug",
+        "z": "18e426374166a31c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "3c0b95e1c666a901",
+        "type": "mqtt in",
+        "z": "18e426374166a31c",
+        "d": true,
+        "name": "",
+        "topic": "fjhp6619mxProteus",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "8511cfae.a6277",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 110,
+        "y": 1400,
+        "wires": [
+            [
+                "c9501dd172d93706"
+            ]
+        ]
+    },
+    {
+        "id": "c9501dd172d93706",
+        "type": "change",
+        "z": "18e426374166a31c",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "\"",
+                "fromt": "str",
+                "to": "",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "-d-",
+                "fromt": "str",
+                "to": "\"dispositivo\"",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "-t-",
+                "fromt": "str",
+                "to": "\"tipo\"",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "-i-",
+                "fromt": "str",
+                "to": "\"dato\"",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "-tmp-",
+                "fromt": "str",
+                "to": "\"temperatura\"",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "-hmd-",
+                "fromt": "str",
+                "to": "\"humedad\"",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "-",
+                "fromt": "str",
+                "to": "\"",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 300,
+        "y": 1400,
+        "wires": [
+            [
+                "aafb156ccab667d2",
+                "41c587f010ce10f4"
+            ]
+        ]
+    },
+    {
+        "id": "aafb156ccab667d2",
+        "type": "debug",
+        "z": "18e426374166a31c",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "ddbbedbf56077bf6",
+        "type": "comment",
+        "z": "18e426374166a31c",
+        "name": "Procesa mensaje de llegada al tópico de proteus",
+        "info": "Recibe un mensaje en json en el mqtt con el tópico fjhp6619mxProteus\nCon el formato string: \n{-d-: -Sx-, -t-: -tmp-, -i-: 35.84}\nEn vez de -tmp- puede ser -hmd- para humedad\n\nSe convierte a json \"normal\" pues proteus tuvo problemas para enviar el json.  \n\nLuego se manda a la BD y al Dashboar\n",
+        "x": 200,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "636b6d11854340db",
+        "type": "function",
+        "z": "18e426374166a31c",
+        "name": "",
+        "func": "var dispositivo=msg.payload.dispositivo;\nvar tipo=msg.payload.tipo;\nvar dato=msg.payload.dato;\nvar msg = {\n    \"payload\":[dispositivo, tipo, dato],\n    \"topic\":\"insert into NodeRedLog (dispositivo, tipo, dato) values (?,?,?);\"\n    };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 1400,
+        "wires": [
+            [
+                "112e79aca2eebeda"
+            ]
+        ]
+    },
+    {
+        "id": "41c587f010ce10f4",
+        "type": "json",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 460,
+        "y": 1440,
+        "wires": [
+            [
+                "636b6d11854340db"
+            ]
+        ]
+    },
+    {
+        "id": "112e79aca2eebeda",
+        "type": "mysql",
+        "z": "18e426374166a31c",
+        "d": true,
+        "mydb": "2af5c3022a2d472b",
+        "name": "Inserta a tabla NodeRedLog",
+        "x": 700,
+        "y": 1440,
+        "wires": [
+            [
+                "57276f747f398541"
+            ]
+        ]
+    },
+    {
+        "id": "57276f747f398541",
+        "type": "debug",
+        "z": "18e426374166a31c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "5fced54d5b949b7a",
+        "type": "function",
+        "z": "18e426374166a31c",
+        "name": "DFerL_nodeMCU",
+        "func": "var dispositivo={\"payload\":msg.payload.dispositivo};\nvar tipoT={\"payload\":msg.payload.tipo};\nvar dato={\"payload\":msg.payload.dato};\n\n\nreturn [dispositivo, tipoT, dato];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1790,
+        "y": 160,
+        "wires": [
+            [
+                "89223b8e6feff0b2"
+            ],
+            [
+                "50c70ef0448654d7"
+            ],
+            [
+                "954e301ce385eac6",
+                "6c86034aa318336c",
+                "c00753e86dca0d3b"
+            ]
+        ]
+    },
+    {
+        "id": "645ca3a945e0802e",
+        "type": "json",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1630,
+        "y": 220,
+        "wires": [
+            [
+                "5fced54d5b949b7a"
+            ]
+        ]
+    },
+    {
+        "id": "89223b8e6feff0b2",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "9d7682282d69c70d",
+        "order": 3,
+        "width": "4",
+        "height": "1",
+        "name": "",
+        "label": "Id. Sensor:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1930,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "50c70ef0448654d7",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "9d7682282d69c70d",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Tipo",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1990,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "954e301ce385eac6",
+        "type": "ui_gauge",
+        "z": "18e426374166a31c",
+        "name": "G1",
+        "group": "9d7682282d69c70d",
+        "order": 6,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "100",
+        "colors": [
+            "#34409d",
+            "#2aae19",
+            "#711e1e"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1810,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "6c86034aa318336c",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "9d7682282d69c70d",
+        "order": 5,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Dato",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "className": "",
+        "x": 1990,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "c00753e86dca0d3b",
+        "type": "ui_chart",
+        "z": "18e426374166a31c",
+        "name": "S1",
+        "group": "9d7682282d69c70d",
+        "order": 7,
+        "width": "7",
+        "height": "5",
+        "label": "Temperatura ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "step",
+        "nodata": "Esperando datos...",
+        "dot": false,
+        "ymin": "10",
+        "ymax": "40",
+        "removeOlder": "60",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#f79b45",
+            "#4dc74d",
+            "#98df8a",
+            "#f2eb8c",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1990,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "672287768cc97d2f",
+        "type": "comment",
+        "z": "18e426374166a31c",
+        "name": "Para cada ventana",
+        "info": "",
+        "x": 1090,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "951cee5a3a199bb2",
+        "type": "mqtt in",
+        "z": "18e426374166a31c",
+        "name": "",
+        "topic": "Eq1IoTTecG570In",
+        "qos": "1",
+        "datatype": "auto",
+        "broker": "8511cfae.a6277",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 1070,
+        "y": 540,
+        "wires": [
+            [
+                "0349905d6bf474c4"
+            ]
+        ]
+    },
+    {
+        "id": "b8bab0012bf1d89d",
+        "type": "switch",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "temperatura",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "humedad",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 1490,
+        "y": 260,
+        "wires": [
+            [
+                "645ca3a945e0802e"
+            ],
+            [
+                "b7a4db5a7fa4961e"
+            ]
+        ]
+    },
+    {
+        "id": "3418fdfe3a5d5375",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "cacb555.674f6a8",
+        "order": 12,
+        "width": "12",
+        "height": "1",
+        "name": "Mensaje DashFerL",
+        "label": "Disp. Fer",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1550,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "0349905d6bf474c4",
+        "type": "switch",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "DFerL_nodeMCU",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "D_Pablo_NodeMCU",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "RodrigoF_SimThonny",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 3,
+        "x": 1270,
+        "y": 580,
+        "wires": [
+            [
+                "b8bab0012bf1d89d",
+                "3418fdfe3a5d5375"
+            ],
+            [
+                "c49fbec6ebb20a40",
+                "b6bebd223f25535c"
+            ],
+            [
+                "f4c5ba04855ad760",
+                "354fe55f9bfd3a2d"
+            ]
+        ]
+    },
+    {
+        "id": "b7a4db5a7fa4961e",
+        "type": "json",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1650,
+        "y": 300,
+        "wires": [
+            [
+                "c6201212d653bd5f"
+            ]
+        ]
+    },
+    {
+        "id": "c6201212d653bd5f",
+        "type": "function",
+        "z": "18e426374166a31c",
+        "name": "DFerL_nodeMCU",
+        "func": "var dispositivo={\"payload\":msg.payload.dispositivo};\nvar tipoH={\"payload\":msg.payload.tipo};\nvar dato={\"payload\":msg.payload.dato};\n\n\nreturn [dispositivo, tipoH, dato];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1810,
+        "y": 300,
+        "wires": [
+            [
+                "701303576c30394f"
+            ],
+            [
+                "3705fa8ccb340cc4"
+            ],
+            [
+                "d0bd6e077e5f8a36",
+                "1c72a0fc9dbc3373",
+                "bfc7fe703b2b1647"
+            ]
+        ]
+    },
+    {
+        "id": "d0bd6e077e5f8a36",
+        "type": "ui_gauge",
+        "z": "18e426374166a31c",
+        "name": "G1",
+        "group": "c8c3f2d53d4ce4d3",
+        "order": 6,
+        "width": "5",
+        "height": "4",
+        "gtype": "donut",
+        "title": "",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "100",
+        "colors": [
+            "#348b9d",
+            "#1aa518",
+            "#ba1212"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1830,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "bfc7fe703b2b1647",
+        "type": "ui_chart",
+        "z": "18e426374166a31c",
+        "name": "S1",
+        "group": "c8c3f2d53d4ce4d3",
+        "order": 7,
+        "width": "7",
+        "height": "5",
+        "label": "Humedad",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "Esperando datos...",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "60",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#f79b45",
+            "#4dc74d",
+            "#98df8a",
+            "#f2eb8c",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 2030,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1c72a0fc9dbc3373",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "c8c3f2d53d4ce4d3",
+        "order": 5,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Dato",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "className": "",
+        "x": 2030,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "3705fa8ccb340cc4",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "c8c3f2d53d4ce4d3",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Tipo",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 2030,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "701303576c30394f",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "c8c3f2d53d4ce4d3",
+        "order": 3,
+        "width": "4",
+        "height": "1",
+        "name": "",
+        "label": "Id. Sensor:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 2030,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "02b258d4bc097429",
+        "type": "comment",
+        "z": "18e426374166a31c",
+        "name": "Ventana de Fernando",
+        "info": "",
+        "x": 1560,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "d8b5534bb783f32f",
+        "type": "comment",
+        "z": "18e426374166a31c",
+        "name": "Ventana de Pablo",
+        "info": "",
+        "x": 1560,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a39d55d6df128a25",
+        "type": "switch",
+        "z": "18e426374166a31c",
+        "d": true,
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "temperatura",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "humedad",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 990,
+        "y": 1000,
+        "wires": [
+            [
+                "d5b2dc01c7216a75"
+            ],
+            [
+                "421ca4d45fea3498"
+            ]
+        ]
+    },
+    {
+        "id": "3feb1b6a505e1454",
+        "type": "function",
+        "z": "18e426374166a31c",
+        "d": true,
+        "name": "temp",
+        "func": "var dato={\"payload\":msg.payload.dato};\ndato.topic ='Line1'\nvar dato2={\"payload\":msg.payload.dato};\ndato2.topic ='Line2'\nreturn [dato, dato2];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1130,
+        "y": 840,
+        "wires": [
+            [
+                "7a05c1944c7cb0ba"
+            ]
+        ]
+    },
+    {
+        "id": "2a0ae9b38836cc63",
+        "type": "function",
+        "z": "18e426374166a31c",
+        "d": true,
+        "name": "hum",
+        "func": "var dato={\"payload\":msg.payload.dato};\nmsg.topic = 'Line2'\nreturn [dato];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 880,
+        "wires": [
+            [
+                "7a05c1944c7cb0ba"
+            ]
+        ]
+    },
+    {
+        "id": "d5b2dc01c7216a75",
+        "type": "json",
+        "z": "18e426374166a31c",
+        "d": true,
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1030,
+        "y": 900,
+        "wires": [
+            [
+                "3feb1b6a505e1454"
+            ]
+        ]
+    },
+    {
+        "id": "421ca4d45fea3498",
+        "type": "json",
+        "z": "18e426374166a31c",
+        "d": true,
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1030,
+        "y": 940,
+        "wires": [
+            [
+                "2a0ae9b38836cc63"
+            ]
+        ]
+    },
+    {
+        "id": "7a05c1944c7cb0ba",
+        "type": "ui_chart",
+        "z": "18e426374166a31c",
+        "d": true,
+        "name": "S1",
+        "group": "c8c3f2d53d4ce4d3",
+        "order": 7,
+        "width": "7",
+        "height": "5",
+        "label": "Humedad",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "Esperando datos...",
+        "dot": true,
+        "ymin": "15",
+        "ymax": "40",
+        "removeOlder": "60",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": true,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#f79b45",
+            "#4dc74d",
+            "#98df8a",
+            "#f2eb8c",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1170,
+        "y": 1000,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "206905faf92fe84e",
+        "type": "comment",
+        "z": "18e426374166a31c",
+        "name": "Intento de gráfica múltiple",
+        "info": "",
+        "x": 1110,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "9b97cf7482c9c3ae",
+        "type": "function",
+        "z": "18e426374166a31c",
+        "name": "D_Pablo_NodeMCU",
+        "func": "var dispositivo={\"payload\":msg.payload.dispositivo};\nvar tipoT={\"payload\":msg.payload.tipo};\nvar dato={\"payload\":msg.payload.dato};\n\n\nreturn [dispositivo, tipoT, dato];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1780,
+        "y": 520,
+        "wires": [
+            [
+                "a49fd7dbfaf2fdcf"
+            ],
+            [
+                "3d9af9027de5d4c1"
+            ],
+            [
+                "0afa447535e5ddd4",
+                "baf8cb439799e8c1",
+                "b3ecb3110d3b3ec1"
+            ]
+        ]
+    },
+    {
+        "id": "5a34af262053d73d",
+        "type": "json",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1630,
+        "y": 600,
+        "wires": [
+            [
+                "9b97cf7482c9c3ae"
+            ]
+        ]
+    },
+    {
+        "id": "a49fd7dbfaf2fdcf",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "ce8596875b0b95a5",
+        "order": 3,
+        "width": "4",
+        "height": "1",
+        "name": "",
+        "label": "Id. Sensor:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1990,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "3d9af9027de5d4c1",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "ce8596875b0b95a5",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Tipo",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1990,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "0afa447535e5ddd4",
+        "type": "ui_gauge",
+        "z": "18e426374166a31c",
+        "name": "G1",
+        "group": "ce8596875b0b95a5",
+        "order": 6,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "100",
+        "colors": [
+            "#34409d",
+            "#2aae19",
+            "#711e1e"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1810,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "baf8cb439799e8c1",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "ce8596875b0b95a5",
+        "order": 5,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Dato",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "className": "",
+        "x": 1990,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "b3ecb3110d3b3ec1",
+        "type": "ui_chart",
+        "z": "18e426374166a31c",
+        "name": "S1",
+        "group": "ce8596875b0b95a5",
+        "order": 7,
+        "width": "7",
+        "height": "5",
+        "label": "Temperatura ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "step",
+        "nodata": "Esperando datos...",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "60",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#f79b45",
+            "#4dc74d",
+            "#98df8a",
+            "#f2eb8c",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1990,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c49fbec6ebb20a40",
+        "type": "switch",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "temperatura",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "humedad",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 1490,
+        "y": 640,
+        "wires": [
+            [
+                "5a34af262053d73d"
+            ],
+            [
+                "0dda216e6c09f550"
+            ]
+        ]
+    },
+    {
+        "id": "b6bebd223f25535c",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "cacb555.674f6a8",
+        "order": 13,
+        "width": "12",
+        "height": "1",
+        "name": "Mensaje DashPablo",
+        "label": "Disp. Pablo",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1540,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "0dda216e6c09f550",
+        "type": "json",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1630,
+        "y": 680,
+        "wires": [
+            [
+                "7c12dcf4d9b9605c"
+            ]
+        ]
+    },
+    {
+        "id": "7c12dcf4d9b9605c",
+        "type": "function",
+        "z": "18e426374166a31c",
+        "name": "D_Pablo_NodeMCU",
+        "func": "var dispositivo={\"payload\":msg.payload.dispositivo};\nvar tipoH={\"payload\":msg.payload.tipo};\nvar dato={\"payload\":msg.payload.dato};\n\n\nreturn [dispositivo, tipoH, dato];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1780,
+        "y": 740,
+        "wires": [
+            [
+                "122d65c0b6cf0c2f"
+            ],
+            [
+                "79b6f95e6ca20243"
+            ],
+            [
+                "dd09ccbc17fe0a17",
+                "170618ba9fe20b42",
+                "f53b68aec690b0be"
+            ]
+        ]
+    },
+    {
+        "id": "dd09ccbc17fe0a17",
+        "type": "ui_gauge",
+        "z": "18e426374166a31c",
+        "name": "G1",
+        "group": "8d4666310edb3e8d",
+        "order": 6,
+        "width": "5",
+        "height": "4",
+        "gtype": "donut",
+        "title": "",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "100",
+        "colors": [
+            "#348b9d",
+            "#1aa518",
+            "#ba1212"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1810,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "f53b68aec690b0be",
+        "type": "ui_chart",
+        "z": "18e426374166a31c",
+        "name": "S1",
+        "group": "8d4666310edb3e8d",
+        "order": 7,
+        "width": "7",
+        "height": "5",
+        "label": "Humedad",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "Esperando datos...",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "60",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#f79b45",
+            "#4dc74d",
+            "#98df8a",
+            "#f2eb8c",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1990,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "170618ba9fe20b42",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "8d4666310edb3e8d",
+        "order": 5,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Dato",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "className": "",
+        "x": 1990,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "79b6f95e6ca20243",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "8d4666310edb3e8d",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Tipo",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1970,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "122d65c0b6cf0c2f",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "8d4666310edb3e8d",
+        "order": 3,
+        "width": "4",
+        "height": "1",
+        "name": "",
+        "label": "Id. Sensor:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1950,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "3fd9fef7252aa9ce",
+        "type": "comment",
+        "z": "18e426374166a31c",
+        "name": "Ventana deRodrigo",
+        "info": "",
+        "x": 1530,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "6e4e039706171ebe",
+        "type": "function",
+        "z": "18e426374166a31c",
+        "name": "RodrigoF_SimThonny",
+        "func": "var dispositivo={\"payload\":msg.payload.dispositivo};\nvar tipoT={\"payload\":msg.payload.tipo};\nvar dato={\"payload\":msg.payload.dato};\n\n\nreturn [dispositivo, tipoT, dato];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1780,
+        "y": 960,
+        "wires": [
+            [
+                "1fe2370b25d2361f"
+            ],
+            [
+                "9bfcaa387d9d3c8e"
+            ],
+            [
+                "7598ee30a857d613",
+                "60ed60b608662a58",
+                "4a413b018ff1fed9"
+            ]
+        ]
+    },
+    {
+        "id": "9e8a2e2f59043842",
+        "type": "json",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1590,
+        "y": 1000,
+        "wires": [
+            [
+                "6e4e039706171ebe"
+            ]
+        ]
+    },
+    {
+        "id": "1fe2370b25d2361f",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "6906feb19c1e91f7",
+        "order": 3,
+        "width": "4",
+        "height": "1",
+        "name": "",
+        "label": "Id. Sensor:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1970,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "9bfcaa387d9d3c8e",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "6906feb19c1e91f7",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Tipo",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1970,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "7598ee30a857d613",
+        "type": "ui_gauge",
+        "z": "18e426374166a31c",
+        "name": "G1",
+        "group": "6906feb19c1e91f7",
+        "order": 6,
+        "width": "5",
+        "height": "4",
+        "gtype": "gage",
+        "title": "",
+        "label": "ºC",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "100",
+        "colors": [
+            "#34409d",
+            "#2aae19",
+            "#711e1e"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1790,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "60ed60b608662a58",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "6906feb19c1e91f7",
+        "order": 5,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Dato",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "className": "",
+        "x": 2010,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "4a413b018ff1fed9",
+        "type": "ui_chart",
+        "z": "18e426374166a31c",
+        "name": "S1",
+        "group": "6906feb19c1e91f7",
+        "order": 7,
+        "width": "7",
+        "height": "5",
+        "label": "Temperatura ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "step",
+        "nodata": "Esperando datos...",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "60",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#f79b45",
+            "#4dc74d",
+            "#98df8a",
+            "#f2eb8c",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 2010,
+        "y": 1040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f4c5ba04855ad760",
+        "type": "switch",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "temperatura",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "humedad",
+                "vt": "str"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 1450,
+        "y": 1060,
+        "wires": [
+            [
+                "9e8a2e2f59043842"
+            ],
+            [
+                "04a0a8aa1382f041"
+            ]
+        ]
+    },
+    {
+        "id": "354fe55f9bfd3a2d",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "cacb555.674f6a8",
+        "order": 14,
+        "width": "12",
+        "height": "1",
+        "name": "Mensaje DashRodrigo",
+        "label": "Disp. Rod",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1480,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "04a0a8aa1382f041",
+        "type": "json",
+        "z": "18e426374166a31c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 1570,
+        "y": 1100,
+        "wires": [
+            [
+                "99d5b6f575cf16f8"
+            ]
+        ]
+    },
+    {
+        "id": "99d5b6f575cf16f8",
+        "type": "function",
+        "z": "18e426374166a31c",
+        "name": "RodrigoF_SimThonny",
+        "func": "var dispositivo={\"payload\":msg.payload.dispositivo};\nvar tipoH={\"payload\":msg.payload.tipo};\nvar dato={\"payload\":msg.payload.dato};\n\n\nreturn [dispositivo, tipoH, dato];",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1760,
+        "y": 1140,
+        "wires": [
+            [
+                "cd233cd7588334f8"
+            ],
+            [
+                "7b8ccbaa1ea3ec20"
+            ],
+            [
+                "b857d2728a8a1e80",
+                "eb72c06984f81b93",
+                "b6db6dcc45fc2f8a"
+            ]
+        ]
+    },
+    {
+        "id": "b857d2728a8a1e80",
+        "type": "ui_gauge",
+        "z": "18e426374166a31c",
+        "name": "G1",
+        "group": "bb35569aadaf2568",
+        "order": 6,
+        "width": "5",
+        "height": "4",
+        "gtype": "donut",
+        "title": "",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "100",
+        "colors": [
+            "#348b9d",
+            "#1aa518",
+            "#ba1212"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1810,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "b6db6dcc45fc2f8a",
+        "type": "ui_chart",
+        "z": "18e426374166a31c",
+        "name": "S1",
+        "group": "bb35569aadaf2568",
+        "order": 7,
+        "width": "7",
+        "height": "5",
+        "label": "Humedad",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "Esperando datos...",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "60",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#f79b45",
+            "#4dc74d",
+            "#98df8a",
+            "#f2eb8c",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1970,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "eb72c06984f81b93",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "bb35569aadaf2568",
+        "order": 5,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Dato",
+        "format": "{{msg.payload}}",
+        "layout": "row-right",
+        "className": "",
+        "x": 1990,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "7b8ccbaa1ea3ec20",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "bb35569aadaf2568",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "name": "",
+        "label": "Tipo",
+        "format": "{{msg.payload}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 1970,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "cd233cd7588334f8",
+        "type": "ui_text",
+        "z": "18e426374166a31c",
+        "group": "bb35569aadaf2568",
+        "order": 3,
+        "width": "4",
+        "height": "1",
+        "name": "",
+        "label": "Id. Sensor:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 1950,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "7b53b802355691fe",
+        "type": "ui_spacer",
+        "z": "18e426374166a31c",
+        "name": "spacer",
+        "group": "6fdfe177.5224b",
+        "order": 22,
+        "width": "7",
+        "height": "2"
+    },
+    {
+        "id": "8511cfae.a6277",
+        "type": "mqtt-broker",
+        "name": "broker.mqtt-dashboard.com",
+        "broker": "broker.mqtt-dashboard.com",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "Hola desde Node Red",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "6fdfe177.5224b",
+        "type": "ui_group",
+        "name": "Dispositivo IoT",
+        "tab": "75d0e424.4d693c",
+        "order": 1,
+        "disp": true,
+        "width": "7",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cacb555.674f6a8",
+        "type": "ui_group",
+        "name": "Mensajes",
+        "tab": "75d0e424.4d693c",
+        "order": 2,
+        "disp": false,
+        "width": "17",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ae1737f3.6c1078",
+        "type": "ui_group",
+        "name": "Temperatura",
+        "tab": "75d0e424.4d693c",
+        "order": 3,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3f124ea4.3f56f2",
+        "type": "ui_group",
+        "name": "Humedad",
+        "tab": "75d0e424.4d693c",
+        "order": 4,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2af5c3022a2d472b",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "iot",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "9d7682282d69c70d",
+        "type": "ui_group",
+        "name": "Temperatura",
+        "tab": "1cf93f91ba879f8e",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c8c3f2d53d4ce4d3",
+        "type": "ui_group",
+        "name": "Humedad",
+        "tab": "1cf93f91ba879f8e",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ce8596875b0b95a5",
+        "type": "ui_group",
+        "name": "Temperatura",
+        "tab": "6128d4a98ca7fe8f",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "8d4666310edb3e8d",
+        "type": "ui_group",
+        "name": "Humedad",
+        "tab": "6128d4a98ca7fe8f",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6906feb19c1e91f7",
+        "type": "ui_group",
+        "name": "Temperatura",
+        "tab": "ac8c264ebcee66dc",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bb35569aadaf2568",
+        "type": "ui_group",
+        "name": "Humedad",
+        "tab": "ac8c264ebcee66dc",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "75d0e424.4d693c",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1cf93f91ba879f8e",
+        "type": "ui_tab",
+        "name": "Fernando",
+        "icon": "devices",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6128d4a98ca7fe8f",
+        "type": "ui_tab",
+        "name": "Pablo",
+        "icon": "devices",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ac8c264ebcee66dc",
+        "type": "ui_tab",
+        "name": "Rodrigo",
+        "icon": "devices",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    }
+]
