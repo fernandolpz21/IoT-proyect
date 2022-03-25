@@ -4,6 +4,7 @@ The goal of the proyect is to recive the values of the temperature and humidity 
 The node.red file then recieves the information in the MQTT, displays it to a dashboard and stores the data in a database created in XAMPP
 
 -> mqtt_esp8266_Base4:
+
     Folder containing the Arduino file used for the NodeMCU.
     You need to upload to the NodeMCU via a USB/microUSB cable. If the NodeMCU changes location, you need
     modify the internet configuration, shown in lines 24 and 25. In the same way, you must modify
@@ -12,11 +13,13 @@ The node.red file then recieves the information in the MQTT, displays it to a da
     in json format
 
 -> iot.txt:
+
     Database exported from XAMPP in sql format. In the test table all the
     data stored in the database and in the devices table you will find additional information about the
     devices that integrate the test table
 
 -> Node.Red Equipo1 IoT.json:
+
     json format that allows the Node-red work environment to be able to read information about a structure of nodes to
     can be used and modified later.
     It is responsible for linking the data received in MQTT with XAMPP and with the dashboard in real time. Similarly
